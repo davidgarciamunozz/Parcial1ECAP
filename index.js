@@ -99,6 +99,27 @@ app.post("/reset-game", (req, res) => {
   res.json({ status: 'success', message: 'Juego reiniciado' });
 });
 
+app.get("/players", (req, res) => {
+  const publicPlayers = players.map(player => ({
+    id: player.id,
+    name: player.name
+  }));
+  
+  res.json(publicPlayers);
+});
+
+// Obtener información del jugador específico (con su rol)
+app.get("/player/:id", (req, res) => {
+  const playerId = parseInt(req.params.id);
+  const player = players.find(p => p.id === playerId);
+  
+  if (!player) {
+    return res.status(404).json({ error: 'Jugador no encontrado' });
+  }
+  
+  res.json(player);
+});
+
 app.post("/notificar-dia", (req, res) => {
   const { message } = req.body;
   io.emit('notificar-dia', { message });
