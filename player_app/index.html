@@ -9,10 +9,73 @@
     <link
         href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAD//wAAKysrAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEREREREREREREREREREREREAAAAAAAAREQEREREREBERAQAAAAAQEREBAAAAABAREQEBEAEQEBERAQEQARAQEREBARABEBAREQEBEAEQEBERAQAAAAAQEREBAAAAABAREQEREREREBERAAAAAAAAEREREREREREREREREREREREAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
         rel="icon" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s ease;
+            padding: 20px;
+        }
+        
+        .player-info {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .role {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .role-lobo {
+            background-color: #ff5252;
+            color: white;
+        }
+        
+        .role-aldeano {
+            background-color: #4caf50;
+            color: white;
+        }
+        
+        h2, h3 {
+            margin-top: 0;
+        }
+        
+        .narrator-message {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        #narrator-text {
+            font-size: 1.1em;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+        }
+    </style>
 </head>
 
 <body id="body">
     <h1>Player App</h1>
+    
+    <div class="player-info">
+        <h2>Información del Jugador</h2>
+        <p><strong>Nombre:</strong> <span id="player-name">Cargando...</span></p>
+        <p><strong>Rol:</strong> <span id="player-role" class="role">Cargando...</span></p>
+    </div>
+    
+    <div class="narrator-message">
+        <h3>Mensaje del Narrador</h3>
+        <p id="narrator-text">Esperando instrucciones del narrador...</p>
+    </div>
 
     <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
     <script src="index.js" type="module"></script>
